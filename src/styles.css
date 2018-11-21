@@ -4,13 +4,40 @@ html {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
 h1 {
     text-align: center;
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1024px;
     margin: 0 auto;
+}
+
+.ig {
+    margin: 15px 0;
+}
+
+.il {
+    display: inline-block;
+    min-width: 60px;
+}
+
+.grid {
+    display: flex;
+}
+
+.section {
+    flex: 0 1 auto;
+    padding: 0 15px;
+}
+
+.section-grid {
+    flex: 1 1 66%;
 }
 
 .data-grid {
@@ -29,7 +56,7 @@ h1 {
 
 .grid-cell {
     display: table-cell;
-    padding: 10px 20px;
+    padding: 15px 0px;
     text-align: center;
 }
 
@@ -72,4 +99,14 @@ h1 {
 .load-button:active {
 	position:relative;
 	top:1px;
+}
+
+@media only screen and (max-width: 768px) { 
+    .grid {
+        display: block;
+    }
+
+    .section-grid {
+        margin-top: 30px;
+    }
 }

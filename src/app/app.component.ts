@@ -18,19 +18,23 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.base = this.getBases()[0];
-    this.date = '2018-11-14';
-    this.loadRates();
+    // this.date = '2018-11-14';
+    // this.loadRates();
   }
 
   loadRates() {
-    console.log(this.date);
     if (this.date) {
       this.dataService.loadRates(this.date, this.base).subscribe(res => {
         this.rates = [];
         this.sorting = 0;
         for (let e in res.rates) {
             let f:boolean = this.getBases().includes(e);
-            this.rates.push(new Rate(e, +res.rates[e], f));
+            let v: number = +res.rates[e];
+            let b: number = v / 100 * 5;
+            let buy: number = v - b;
+            let sell: number = v + b;
+            this.rates.push(new Rate(e, buy.toFixed(4), sell.toFixed(4), f));
+            // console.log(e, v)
         }
       });
     }
@@ -61,12 +65,14 @@ export class AppComponent {
 
 class Rate {
   id: string;
-  value: number;
+  buy: string;
+  sell: string;
   isBase: boolean;
 
-  constructor(id: string, value: number, f: boolean) {
+  constructor(id: string, buy: string, sell: string, f: boolean) {
     this.id = id;
-    this.value = value;
+    this.buy = buy;
+    this.sell = sell;
     this.isBase = f;
   }
 }

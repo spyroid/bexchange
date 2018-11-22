@@ -9,12 +9,13 @@
                 </select>
             </div>
             <div class="ig"> 
-                <span class="il">Date:</span> <input type="date" [(ngModel)]='date'/><br/>
+                <span class="il">Date:</span> 
+                <input type="date" [(ngModel)]='date' placeholder="Enter a date as yyyy-mm-dd"/><br/>
             </div>
             
             <div class="ig">
                 <span class="il">&nbsp;</span>
-                <button (click)="loadRates()" [disabled]="!date" class="load-button">Display</button>
+                <button (click)="loadRates()" [disabled]="!isDateValid()" class="load-button">Display</button>
             </div>
 
         </div>

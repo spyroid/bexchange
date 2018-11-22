@@ -22,7 +22,13 @@ export class AppComponent {
     // this.loadRates();
   }
 
+  isDateValid(): boolean {
+    let re = /^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])$/
+    return re.test(this.date);
+  }
+
   loadRates() {
+      console.log(this.date)
     if (this.date) {
       this.dataService.loadRates(this.date, this.base).subscribe(res => {
         this.rates = [];

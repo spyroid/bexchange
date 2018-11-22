@@ -101,6 +101,13 @@ h1 {
 	top:1px;
 }
 
+.load-button:disabled,
+.load-button[disabled] {
+    opacity: 0.4;
+}
+
+.load-button:focus {outline:0;}
+
 @media only screen and (max-width: 768px) { 
     .grid {
         display: block;

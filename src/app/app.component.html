@@ -22,7 +22,7 @@
         <div class="section-grid">
             <div *ngIf="getRates()" class="data-grid">
                 <div class="grid-row">
-                    <div class="grid-cell" (click)="sortRates()"><b>Currency&nbsp;{{ sorting == 0 ? '↕︎' : sorting > 0 ? '↓' : '↑' }}</b></div>
+                    <div class="grid-cell" (click)="sortRates()"><b class="hovering">Currency&nbsp;{{ sorting == 0 ? '↕︎' : sorting > 0 ? '↓' : '↑' }}</b></div>
                     <div class="grid-cell"><b>Buy</b></div>
                     <div class="grid-cell"><b>Sell</b></div>
                 </div>
